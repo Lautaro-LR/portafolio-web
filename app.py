@@ -58,12 +58,12 @@ proyectos = [
 
 # --- NAVEGACIÓN LATERAL ---
 # Crea un menú limpio a la izquierda
-menu = st.sidebar.radio("Navegación", ["Inicio y Contacto", "Proyectos"])
+menu = st.sidebar.radio("Navegación", ["Sobre mi", "Proyectos"])
 
 # --- SECCIÓN 1: INICIO Y CONTACTO ---
-if menu == "Inicio y Contacto":
-    st.title("Hola, soy Lautaro 👋")
-    st.subheader("Contador Público | Analista de Riesgo Financiero | Data Science e IA")
+if menu == "Sobre mi":
+    st.title("Soy Lautaro Rodriguez")
+    st.subheader(" Analista de datos | Contador Público")
     
     st.write("---")
     
@@ -73,20 +73,22 @@ if menu == "Inicio y Contacto":
     with col1:
         st.markdown("""
         ### Sobre mí
-        Me apasiona la mejora de procesos y la resolución de problemas de negocio complejos. Combino mi formación contable y experiencia en análisis de riesgo crediticio con herramientas de **Ciencia de Datos e Inteligencia Artificial** para transformar datos en decisiones estratégicas.
+        ##### Soy Contador Público, pero desde siempre me considero una persona con una mentalidad curiosa y analítica, que disfruta encontrando formas de hacer el trabajo diario más fácil y eficiente. Mi recorrido me permitió conocer el "detrás de escena" de las empresas: pasé por la liquidación de impuestos, logré agilizar procesos de facturación y hoy aplico esa experiencia en mi rol actual gestionando cuentas corrientes.
+                    
+        ##### Para llevar ese impacto al siguiente nivel, entendí que la tecnología es la mejor aliada, por lo que me encuentro cursando la Tecnicatura en Ciencia de Datos e Inteligencia Artificial.
+        ##### Mi objetivo es ser el puente entre los números del negocio y la programación, combinando mi visión contable con herramientas como Power BI, SQL y Python para dejar atrás las tareas manuales y construir sistemas automatizados que aporten claridad y valor real.
         
         ### Stack Tecnológico
-        * **Visualización y BI:** Power BI, DAX
-        * **Bases de Datos:** SQL Server
-        * **Lenguajes:** Python
-        * **Herramientas de Negocio:** Excel Avanzado (Power Query, Power Pivot), Google Apps Script
+        ##### • **Visualización y BI:** Power BI, DAX
+        ##### • **Bases de Datos:** SQL
+        ##### • **Lenguajes:** Python
+        ##### • **Herramientas de Negocio:** Excel Avanzado (Power Query, Power Pivot, Tablad dinamicas)
         """)
     
     with col2:
         st.markdown("### Contacto")
-        st.write("✉️ **Email:** tu_correo@email.com")
-        st.write("💼 **LinkedIn:** [Tu Perfil de LinkedIn](https://linkedin.com)")
-        st.write("💻 **GitHub:** [Tu Repositorio](https://github.com)")
+        st.write("✉️ **Email:** rodriguez98lt@gmail.com")
+        st.write("💼 **LinkedIn:** [Lautaro Rodriguez](www.linkedin.com/in/lautaro-rodríguez-47bb12196)")
         
         # Botón para descargar CV (Asegúrate de poner un archivo PDF real en la misma carpeta)
         try:
