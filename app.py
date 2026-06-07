@@ -2,11 +2,9 @@ import streamlit as st
 from PIL import Image
 
 
-# Configuración básica de la página (Pestaña del navegador)
 st.set_page_config(page_title="Portafolio | Lautaro", page_icon="📊", layout="wide")
 
-# --- BASE DE DATOS DE PROYECTOS (Fácilmente escalable) ---
-# Para agregar un proyecto nuevo en el futuro, solo añade un bloque como estos a la lista.
+
 proyectos = [
     {
         "id": "p1",
@@ -14,7 +12,7 @@ proyectos = [
         "tecnologia": "Power BI / DAX",
         "descripcion_corta": "Dashboard interactivo en POWER BI sobre segmentación de productos y cartera de clientes.",
         "imagen": "imagenes/Segmentación de Productos_imagen_portada.jpg",
-        # AGREGA ESTA LÍNEA (Obtén el link en Power BI: Archivo -> Insertar informe -> Sitio web o portal)
+        
         "url_powerbi": "https://app.powerbi.com/view?r=eyJrIjoiNDM1ODIyMWItMWI0ZS00YjdiLWEzMWItNzE3YzM2NzFiYzk1IiwidCI6IjNlZDkxMGEyLTZlYjUtNDBiNy05M2VkLWQ5YTFmMTcxNTgzZiIsImMiOjR9&embedImagePlaceholder=true&pageName=f02ef6238b8c94a9eb3d", 
         "detalle_completo": """
         ### Análisis de Segmentación
@@ -52,7 +50,7 @@ proyectos = [
         "tecnologia": "Power BI / DAX",
         "descripcion_corta": "Dashboard interactivo en POWER BI sobre análisis de resultados pruebas PISA vs Inversión de países en educación.",
         "imagen": "imagenes/Analisis_pruebas_PISA_foto portada.jpg",
-        # AGREGA ESTA LÍNEA (Obtén el link en Power BI: Archivo -> Insertar informe -> Sitio web o portal)
+        
         "url_powerbi": "https://app.powerbi.com/view?r=eyJrIjoiMTI4ZjMwN2MtMjg0Ni00MjMzLTkwZTYtMzljMDkxYjU3ZjEzIiwidCI6IjNlZDkxMGEyLTZlYjUtNDBiNy05M2VkLWQ5YTFmMTcxNTgzZiIsImMiOjR9&pageName=3f65cc8b5a2d1e51e958", 
         "detalle_completo": """
         ### Contexto del Proyecto
@@ -85,7 +83,7 @@ proyectos = [
         "tecnologia": "Power BI / DAX",
         "descripcion_corta": "Dashboard interactivo en POWER BI sobre mercado laboral IT en Canadá.",
         "imagen": "imagenes/Analisis_TrabajoIT_fotoportada.jpg",
-        # AGREGA ESTA LÍNEA (Obtén el link en Power BI: Archivo -> Insertar informe -> Sitio web o portal)
+       
         "url_powerbi": "https://app.powerbi.com/view?r=eyJrIjoiNGMzYzIyOWYtYWYxZi00MWViLWJiMWUtMDEyNTFmNmYzMjcyIiwidCI6IjNlZDkxMGEyLTZlYjUtNDBiNy05M2VkLWQ5YTFmMTcxNTgzZiIsImMiOjR9&pageName=681113709c393d13071f", 
         "detalle_completo": """
         ### Contexto del Proyecto
@@ -113,7 +111,7 @@ proyectos = [
         "tecnologia": "Excel Avanzado",
         "descripcion_corta": "Control de movimientos de stock en EXCEL.",
         "imagen": "imagenes/ControlStock_portada.jpg",
-        "video": "imagenes/Video_Control_stock_excel.mp4", # Asegúrate de crear la carpeta y poner la ruta correcta
+        "video": "imagenes/Video_Control_stock_excel.mp4", 
         "detalle_completo": """
         ### Contexto del Proyecto
         Si bien el registro de las facturas siempre requiere una carga inicial de datos, el verdadero problema de muchas empresas es usar planillas estáticas donde el cálculo del stock y los saldos también debe actualizarse a mano. Esa falta de automatización es la que termina generando errores, quiebres de inventario o inmovilización de capital en productos que no rotan.
@@ -153,7 +151,7 @@ proyectos = [
         "tecnologia": "Excel Avanzado",
         "descripcion_corta": "Sistema diseñado en EXCEL para optimizar y agilizar los procesos de valoración médica.",
         "imagen": "imagenes/Facturacion_hospital_imagen_portada.jpg",
-        "video": "imagenes/Video_Facturacion_hospital.mp4", # Asegúrate de crear la carpeta y poner la ruta correcta
+        "video": "imagenes/Video_Facturacion_hospital.mp4", 
         "detalle_completo": """
         ### Contexto del Proyecto
         El objetivo central de este proyecto fue transformar y automatizar el proceso de facturación hospitalaria, reduciendo drásticamente los tiempos de procesamiento y minimizando el margen de error manual en el cálculo de aranceles.
@@ -165,8 +163,7 @@ proyectos = [
     }
 ]
 
-# --- NAVEGACIÓN LATERAL ---
-# Crea un menú limpio a la izquierda
+
 menu = st.sidebar.radio("Navegación", ["Sobre mí", "Proyectos"])
 
 # --- SECCIÓN 1: INICIO Y CONTACTO ---
@@ -200,7 +197,7 @@ if menu == "Sobre mí":
         st.write("💼 **LinkedIn:** [Lautaro Rodriguez](https://www.linkedin.com/in/lautaro-rodríguez-47bb12196)")
         
         
-        # Botón para descargar CV (Asegúrate de poner un archivo PDF real en la misma carpeta)
+        # Botón para descargar CV
         #try:
         #    with open("CV_Lautaro.pdf", "rb") as file:
         #        st.download_button(
@@ -215,21 +212,21 @@ if menu == "Sobre mí":
 # --- SECCIÓN 2: PROYECTOS ---
 elif menu == "Proyectos":
     
-    # Lógica para alternar entre la "Galería" y el "Detalle del Proyecto"
-    # ESTA ES LA LÍNEA QUE FALTABA: Inicializar el estado si no existe
+    # Lógica para alternar entre la Galería y el Detalle del Proyecto
+
     if 'proyecto_seleccionado' not in st.session_state:
         st.session_state.proyecto_seleccionado = None
 
-    # VISTA 1: GALERÍA DE PROYECTOS (Si no hay ninguno seleccionado)
+    # VISTA 1: GALERÍA DE PROYECTOS
     if st.session_state.proyecto_seleccionado is None:
         st.title("Mis Proyectos")
         st.write("---")
         
         # Agrupar y mostrar los proyectos en filas reales de 3
         for i in range(0, len(proyectos), 3):
-            cols = st.columns(3) # Crea 3 columnas nuevas por cada "fila"
+            cols = st.columns(3) 
             
-            # Llenar las columnas de esta fila
+            
             for j in range(3):
                 if i + j < len(proyectos):
                     proj = proyectos[i + j]
@@ -241,22 +238,22 @@ elif menu == "Proyectos":
                         st.image(img_portada, use_container_width=True)
                         st.markdown(f"### {proj['titulo']}")
                         
-                        # Limitar la descripción corta para emparejar el diseño (ej: máximo 100 caracteres)
+                        # Limitar la descripción corta para emparejar el diseño
                         desc = proj["descripcion_corta"]
                         if len(desc) > 100:
                             st.write(desc[:97] + "...")
                         else:
                             st.write(desc)
                         
-                        # Al hacer clic, guardamos el ID del proyecto y recargamos la página
+                        #guardamos el ID del proyecto y recargamos la página
                         if st.button("Ver detalles", key=f"btn_{proj['id']}"):
                             st.session_state.proyecto_seleccionado = proj['id']
                             st.rerun() 
             
-            # Espacio visual entre filas para que respire el diseño
+            # Espacio visual entre filas
             st.write("---")
 
-# VISTA 2: DETALLE DEL PROYECTO (Si hay un proyecto seleccionado)
+# VISTA 2: DETALLE DEL PROYECTO
     else:
         # Buscar la información del proyecto seleccionado en la lista
         proyecto_actual = next(p for p in proyectos if p['id'] == st.session_state.proyecto_seleccionado)
